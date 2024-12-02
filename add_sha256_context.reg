@@ -1,0 +1,8 @@
+﻿Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\GetSHA256]
+"MUIVerb"="Get SHA256"
+"Icon"="powershell.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\GetSHA256\command]
+@="powershell.exe -NoProfile -WindowStyle Normal -Command \"$hash = (Get-FileHash -Path \\\"%1\\\" -Algorithm SHA256).Hash; Set-Clipboard -Value $hash; Write-Host \\\"SHA256 hash for '%1':\\\"; Write-Host $hash -ForegroundColor Green; Write-Host \\\"(Copied to clipboard)\\\"; timeout /t 5\""
